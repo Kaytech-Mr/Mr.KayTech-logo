@@ -11,60 +11,80 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      background: radial-gradient(circle at center, #0a0f1a, #0e1c2f, #1c2d3a);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .container {
       display: flex;
       align-items: center;
-      gap: 20px;
-      animation: zoomIn 1.2s ease-out forwards;
-      transform: scale(0.8);
+      gap: 25px;
+      animation: fadeIn 2s ease-out forwards;
+      transform: scale(0.95);
       opacity: 0;
     }
 
-    @keyframes zoomIn {
+    @keyframes fadeIn {
       to {
         transform: scale(1);
         opacity: 1;
       }
     }
 
-    .logo {
-      width: 100px;
-      animation: rotateGear 3s linear infinite;
+    .logo-wrapper {
+      position: relative;
+      width: 120px;
     }
 
-    @keyframes rotateGear {
+    .gear {
+      position: absolute;
+      width: 50%;
+      top: 28%;
+      left: 25%;
+      animation: spin 4s linear infinite;
+    }
+
+    .logo-bg {
+      width: 100%;
+      display: block;
+    }
+
+    @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
 
     .text {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       font-weight: bold;
       color: #ffffff;
+      background: linear-gradient(to right, #00ffe1, #00bfff, #0077ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       white-space: nowrap;
       overflow: hidden;
-      border-right: 3px solid #ffffff;
+      border-right: 3px solid rgba(255, 255, 255, 0.4);
       width: 0;
-      animation: typing 2.5s steps(20, end) forwards, blink 0.75s step-end infinite;
+      animation: typing 2.8s steps(20, end) forwards, glow 2s infinite alternate;
     }
 
     @keyframes typing {
-      to { width: 12ch; }
+      to { width: 14ch; }
     }
 
-    @keyframes blink {
-      50% { border-color: transparent; }
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #00ffe1, 0 0 10px #00bfff; }
+      to   { text-shadow: 0 0 10px #00ffe1, 0 0 20px #00bfff; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="logo.png.png" alt="Mr. Kay Tech Logo" class="logo"/>
+    <div class="logo-wrapper">
+      <img src="logo.png" alt="Mr. Kay Tech Logo" class="logo-bg"/>
+      <img src="gear.png" alt="Gear" class="gear"/>
+    </div>
     <div class="text">Mr. Kay Tech</div>
   </div>
 </body>
-</html>
+</html>>
