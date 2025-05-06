@@ -1,77 +1,19 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mr. Kay Tech</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: radial-gradient(circle at center, #0a0f1a, #0e1c2f, #1c2d3a);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .container {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      animation: fadeInUp 1.5s ease forwards;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .logo {
-      width: 120px;
-      animation: spin 5s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .text {
-      font-size: 3rem;
-      font-weight: bold;
-      color: white;
-      background: linear-gradient(to right, #00ffe1, #00bfff, #0077ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      position: relative;
-    }
-
-    .text::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
-      animation: shine 2.5s infinite;
-    }
-
-    @keyframes shine {
-      0% { left: -100%; }
-      100% { left: 100%; }
-    }
-  </style>
+  <title>Mr. Kay Tech Logo Animation</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <div class="container">
-    <img src="logo.png.PNG" alt="Mr. Kay Tech Logo" class="logo" />
-    <div class="text">Mr. Kay Tech</div>
+  <div class="animation-container">
+    <img src="logo.png" alt="Mr. Kay Tech Logo" class="logo" />
+    <canvas id="particles"></canvas>
+    <div class="glow"></div>
   </div>
+  <audio src="tech_sound_fx.mp3" autoplay></audio>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
